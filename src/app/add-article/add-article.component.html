@@ -1,0 +1,24 @@
+<form #myform="ngForm" (ngSubmit)="createArticle(myform)">
+    <div class="form-group">
+        <label for="articleLabel">Article Label</label>
+        <input ngModel class="form-control" type="text" size="20" name="articleLabel" id="articleLabel">
+    </div>
+    <div class="form-group">
+        <label for="articlePrice">Article Price</label>
+        <input ngModel class="form-control" type="text" size="20" name="articlePrice" id="articlePrice">
+    </div>
+    <div class="form-group">
+        <label for="articlePicture">Article Picture</label>
+        <input ngModel class="form-control" type="text" size="20" name="articlePicture" id="articlePicture">
+    </div>
+    <div class="form-group">
+        <label for="articleProvider">Article's Provider</label><br>
+        <select ngModel name="providerId" class="form-select" >
+            <option></option>
+            <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
+        </select>
+    </div>
+
+      <button class="btn btn-primary">Ajouter</button>
+    
+</form>

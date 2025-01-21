@@ -1,0 +1,18 @@
+<h1>Mise a jour d'un Article</h1>
+<form (ngSubmit)="updateArticle()" >
+    <div class="form-group">
+        <label for="articleLabel">Article Label</label>
+        <input [(ngModel)] ="label" size="20" name="articleLabel" class="form-control"  type="text" id="articleLabel">
+    </div>
+    <div class="form-group">
+        <label for="articlePrice">Article Price</label>
+        <input [(ngModel)] ="price"  size="20" name="articlePrice" class="form-control" type="text" id="articlePrice" >
+    </div>
+    <div class="form-group">
+        <label for="articlePicture">Article Picture</label>
+        <input [(ngModel)] ="picture" size="20" name="articlePicture" class="form-control" type="text" id="articlePicture">
+    </div>
+    
+    <input [(ngModel)] ="id" name="articleId" type="hidden" />
+    <button class="btn btn-primary">Mise a jour</button>
+</form>
