@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +9,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class NavbarComponent {
 
-  constructor(public loginService: AuthenticationService) { }
+  constructor() { }
   ngOnInit() {
   }
 

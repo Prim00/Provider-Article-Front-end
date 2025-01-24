@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { ListArticleComponent } from './list-article/list-article.component';
-import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [

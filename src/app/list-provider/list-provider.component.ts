@@ -11,30 +11,24 @@ import { Router } from '@angular/router';
 })
 export class ListProviderComponent implements OnInit {
 
+  public urlUpload = 'http://127.0.0.1:8888/uploads';
+
   providers : any;
 
   constructor(private service : ProviderService ,private router : Router ){}
 
   ngOnInit() {
-    this.service.listProviders().subscribe(
-      data => {
-        this.providers = data ;
-      }, 
- 
-      error => {
-        console.error('Problème de serveur');
-      }) 
+    this.refreshListProviders();
+      } 
 
-  }
-
-  deleteProvider(myObj:any){
-    this.service.deleteProvider(myObj).subscribe(
-      response => {
-        console.log(response);
-        this.refreshListProviders();
-
-      });
-  }
+      deleteProvider(myObj: any) {
+        let conf=confirm("Are you sure?");
+        if(conf == false) return;
+        this.service.deleteProvider(myObj).subscribe(response => {
+          this.refreshListProviders();
+        })
+      }
+    
 
   refreshListProviders() {
     this.service.listProviders().subscribe(data =>{

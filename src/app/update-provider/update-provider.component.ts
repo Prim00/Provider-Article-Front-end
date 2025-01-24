@@ -15,6 +15,11 @@ export class UpdateProviderComponent implements OnInit {
   public name:any;
   public email:any;
   public address:any;
+  
+  public urlUpload = "http://127.0.0.1:8888/uploads";
+  selectedFile!: File;
+  public oldImage = "";
+  public newImage = "";
 
   public providerToUpdate:any;
 
@@ -31,19 +36,30 @@ export class UpdateProviderComponent implements OnInit {
             this.name = response["name"];
             this.email = response["email"];
             this.address = response["address"];
+            this.oldImage=response["image"];
     })
 
   }
 
-  updateProvider(){
-    this.providerToUpdate = {
-      'name' : this.name,
-      'email' : this.email,
-      'address': this.address,
-      'id' : this.id
+  public onFileChanged(event: any) {
+    //Select File
+    if (event.target.files[0]) {
+      this.selectedFile = event.target.files[0];
     }
+  }
 
-    return this.service.updateProvider(this.providerToUpdate).subscribe(
+  updateProvider(){
+    const provider = new FormData();
+    if (this.selectedFile != null) {
+      console.log("info :" + this.selectedFile)
+      provider.append('imageFile', this.selectedFile, this.selectedFile.name);
+    }
+    provider.append('name', this.name);
+    provider.append('email', this.email);
+    provider.append('address', this.address);
+    provider.append('id', this.id);
+
+    return this.service.updateProvider(provider).subscribe(
       response =>{
         console.log(response);
         this.router.navigate(['listProvider']);

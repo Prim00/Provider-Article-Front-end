@@ -2,12 +2,16 @@
     <a class="navbar-brand" href="#">Providers / Articles</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/listProvider" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">ListeProviders</a>
-    <a class="nav-item nav-link" routerLink="/addProvider" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Ajouter Provider</a>
-    <a class="nav-item nav-link" routerLink="/listArticle" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Liste Articles</a>
-    <a class="nav-item nav-link" routerLink="/addArticle" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">Ajouter Article</a>
+    <!-- <a class="nav-item nav-link" routerLink="/listProvider" *ngIf="loginService.isUserLoggedIn()" routerLinkActive="active">ListeProviders</a> -->
+
+    <a class="nav-item nav-link" routerLink="/listProvider">ListeProviders</a>
+    <a class="nav-item nav-link" routerLink="/addProvider">Ajouter Provider</a>
+    <a class="nav-item nav-link" routerLink="/listArticle">Liste Articles</a>
+    <a class="nav-item nav-link" routerLink="/addArticle">Ajouter Article</a>
+    <!-- 
     <a class="nav-item nav-link" routerLink="/login"  *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="active">Login</a>
-    <a class="nav-item nav-link" routerLink="/logout" *ngIf="loginService.isUserLoggedIn()"  routerLinkActive="active">LogOut</a>
+    <a class="nav-item nav-link" routerLink="/logout" *ngIf="loginService.isUserLoggedIn()"  routerLinkActive="active">LogOut</a> 
+    -->
     </div>
     </div>
    </nav>

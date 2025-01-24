@@ -1,41 +1,34 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ArticleService {
+  urlArticle = "http://127.0.0.1:8888/articles";
 
-  urlArticle = "http://127.0.0.1:8888/articles"
-  article : any;
+  article: any;
 
-  constructor(private http :HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  listArticle(){
+  listArticle() {
     return this.http.get(this.urlArticle);
   }
 
-  createArticle(myForm:any){
-    this.article = {
-      'label' : myForm.value.articleLabel,
-      'price' : myForm.value.articlePrice,
-      'picture' : myForm.value.articlePicture,
-    }
-    console.log(this.article)
-    return this.http.post(this.urlArticle + "/" + myForm.value.providerId,this.article);
+  createArticle(article: any) {
+    return this.http.post(this.urlArticle, article);
   }
 
-  deleteArticle(myObj:any){
-    return this.http.delete(this.urlArticle + "/" +myObj['id'])
+  deleteArticle(myObj: any) {
+    return this.http.delete(this.urlArticle + "/" + myObj["id"]);
   }
 
-  updateArticle(myObj:any){
-    return this.http.put(this.urlArticle + "/" + myObj["id"],myObj)
+  updateArticle(article: any) {
+    console.log("this is the id : " + article.get("id"));
+    return this.http.put(this.urlArticle + "/" + article.get("id"), article);
   }
 
-  getArticle(id:any){
-   return this.http.get(this.urlArticle + "/" +id) 
+  getArticle(id: any) {
+    return this.http.get(this.urlArticle + "/" + id);
   }
-
-
 }

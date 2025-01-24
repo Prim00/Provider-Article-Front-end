@@ -13,6 +13,7 @@ import { ProviderService } from '../services/provider.service';
 export class AddArticleComponent implements OnInit {
 
   providers : any;
+  selectedFile !: File
 
   constructor (private service : ArticleService , private serv : ProviderService, private router : Router){}
 
@@ -22,8 +23,19 @@ export class AddArticleComponent implements OnInit {
     })
   }
 
+  
+  public onFileChanged(event:any) {
+    this.selectedFile = event.target.files[0];
+  }
+
   createArticle(myform:any){
-    this.service.createArticle(myform).subscribe((response:any) =>{
+    const article = new FormData()
+    article.append("imageFile",this.selectedFile,this.selectedFile.name)
+    article.append("label",myform.value.articleLabel)
+    article.append("price",myform.value.articlePrice)
+    article.append("provider",myform.value.providerId)
+
+    this.service.createArticle(article).subscribe((response:any) =>{
       console.log(response);
       this.router.navigate(['listArticle']);
     })
