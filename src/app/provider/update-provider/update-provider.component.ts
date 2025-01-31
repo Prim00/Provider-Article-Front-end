@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProviderService } from '../services/provider.service';
+import { ProviderService } from '../../services/provider.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -62,7 +62,7 @@ export class UpdateProviderComponent implements OnInit {
     return this.service.updateProvider(provider).subscribe(
       response =>{
         console.log(response);
-        this.router.navigate(['listProvider']);
+        this.router.navigate(['/providers/listProvider']);
     })
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../services/article.service';
+import { ArticleService } from '../../services/article.service';
 import { Router } from '@angular/router';
-import { ProviderService } from '../services/provider.service';
+import { ProviderService } from '../../services/provider.service';
 
 @Component({
   selector: 'app-add-article',
@@ -37,7 +37,7 @@ export class AddArticleComponent implements OnInit {
 
     this.service.createArticle(article).subscribe((response:any) =>{
       console.log(response);
-      this.router.navigate(['listArticle']);
+      this.router.navigate(['/articles/listArticle']);
     })
   }
 

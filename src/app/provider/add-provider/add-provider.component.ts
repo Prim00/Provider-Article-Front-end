@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ProviderService } from '../services/provider.service';
+import { ProviderService } from '../../services/provider.service';
 import { Router  } from '@angular/router';
 
 @Component({
@@ -32,7 +32,7 @@ export class AddProviderComponent implements OnInit {
     this.service.createProvider(provider).subscribe(
       data =>{
         console.log(data);
-        this.router.navigate(['listProvider']);
+        this.router.navigate(['/providers/listProvider']);
 
     });
   }

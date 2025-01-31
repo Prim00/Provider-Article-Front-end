@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProviderService } from '../services/provider.service';
 import { Router } from '@angular/router';
+import { ProviderService } from '../../services/provider.service';
 
 @Component({
   selector: 'app-list-provider',
@@ -24,20 +24,20 @@ export class ListProviderComponent implements OnInit {
       deleteProvider(myObj: any) {
         let conf=confirm("Are you sure?");
         if(conf == false) return;
-        this.service.deleteProvider(myObj).subscribe(response => {
+        this.service.deleteProvider(myObj).subscribe((response:any) => {
           this.refreshListProviders();
         })
       }
     
 
   refreshListProviders() {
-    this.service.listProviders().subscribe(data =>{
+    this.service.listProviders().subscribe((data:any) =>{
       this.providers = data;
     })
   }
 
   updateProvider(myObj:any){
-    this.router.navigate(["updateProvider" + '/' + myObj['id']]);
+    this.router.navigate(["/providers/updateProvider" + '/' + myObj['id']]);
 
   }
 

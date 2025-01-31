@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../services/article.service';
+import { ArticleService } from '../../services/article.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProviderService } from '../services/provider.service';
+
 
 @Component({
   selector: 'app-update-article',
@@ -61,7 +61,7 @@ public articleToUpdate :any;
 
       return this.service.updateArticle(article).subscribe(response=>{
         console.log(response)
-        this.router.navigate(['listArticle'])
+        this.router.navigate(['/articles/listArticle'])
       })
     }
     

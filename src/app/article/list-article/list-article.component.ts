@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ArticleService } from "../services/article.service";
+import { ArticleService } from "../../services/article.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -38,6 +38,6 @@ export class ListArticleComponent implements OnInit {
   }
 
   updateArticle(myObj: any) {
-    return this.router.navigate(["updateArticle" + "/" + myObj["id"]]);
+    return this.router.navigate(["/articles/updateArticle" + "/" + myObj["id"]]);
   }
 }
